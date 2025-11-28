@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security | AdvisorNote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rust: #C4622D;
+            --ochre: #D4A574;
+            --sand: #F4EDE3;
+            --charcoal: #1A1A1A;
+            --slate: #475569;
+            --seafoam: #3A5F5A;
+            --cream: #FFFBF5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+        }
+        
+        .display-font {
+            font-family: 'Fraunces', serif;
+            font-optical-sizing: auto;
+        }
+        
+        .mono-font {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        /* Grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulance type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 251, 245, 0.9);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-3xl font-bold display-font">AdvisorNote</a>
+                <a href="index.html" class="mono-font text-sm uppercase tracking-wider hover:opacity-75 transition">
+                    ← Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Security Content -->
+    <section class="pt-32 pb-20 min-h-screen">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="mb-12">
+                <h1 class="text-6xl md:text-7xl font-bold display-font mb-6">
+                    Security
+                </h1>
+                <p class="text-lg text-slate mono-font">
+                    How we protect your data
+                </p>
+            </div>
+
+            <div class="prose prose-lg max-w-none space-y-8">
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">Security by Design</h2>
+                    <p class="text-slate leading-relaxed mb-4">
+                        AdvisorNote's security architecture is fundamentally different from cloud-based transcription services. By processing everything locally on your device, we eliminate the most significant security risk: transmitting sensitive data over the internet.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">100% On-Device Processing</h2>
+                    <p class="text-slate leading-relaxed mb-4">
+                        All speech recognition happens entirely on your computer using advanced AI models:
+                    </p>
+                    <ul class="space-y-3 text-slate">
+                        <li>• Audio never leaves your device</li>
+                        <li>• No internet connection required for transcription</li>
+                        <li>• No cloud storage or transmission</li>
+                        <li>• Audio files are never saved or logged</li>
+                        <li>• Transcriptions remain on your local machine</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">Zero Data Collection</h2>
+                    <p class="text-slate leading-relaxed mb-4">
+                        We cannot access your data because we never collect it:
+                    </p>
+                    <ul class="space-y-3 text-slate">
+                        <li>• No telemetry or usage tracking</li>
+                        <li>• No analytics or behavioral data</li>
+                        <li>• No access to your transcriptions</li>
+                        <li>• No access to your audio recordings</li>
+                        <li>• No access to client information</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">Australian Data Sovereignty</h2>
+                    <p class="text-slate leading-relaxed mb-4">
+                        Built for Australian financial professionals:
+                    </p>
+                    <ul class="space-y-3 text-slate">
+                        <li>• All data processing happens in Australia (on your device)</li>
+                        <li>• No data stored on foreign servers</li>
+                        <li>• Complies with Australian privacy regulations</li>
+                        <li>• No exposure to international data transfer risks</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">Compliance Ready</h2>
+                    <p class="text-slate leading-relaxed mb-4">
+                        AdvisorNote's architecture simplifies compliance:
+                    </p>
+                    <ul class="space-y-3 text-slate">
+                        <li>• No third-party data processors to audit</li>
+                        <li>• No data breach notification requirements (we don't hold your data)</li>
+                        <li>• No cross-border data transfer considerations</li>
+                        <li>• Simplified IT security assessments</li>
+                        <li>• Easier to satisfy regulatory requirements</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">Software Updates</h2>
+                    <p class="text-slate leading-relaxed mb-4">
+                        We take software security seriously:
+                    </p>
+                    <ul class="space-y-3 text-slate">
+                        <li>• Regular security updates and patches</li>
+                        <li>• Signed software releases for authenticity</li>
+                        <li>• Transparent update process</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">IT Department Approval</h2>
+                    <p class="text-slate leading-relaxed mb-4">
+                        AdvisorNote is designed to pass IT security reviews:
+                    </p>
+                    <ul class="space-y-3 text-slate">
+                        <li>• No network traffic containing sensitive data</li>
+                        <li>• No external dependencies for core functionality</li>
+                        <li>• Minimal attack surface</li>
+                        <li>• No cloud infrastructure to secure</li>
+                        <li>• Transparent architecture for security audits</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 border-2 border-charcoal">
+                    <h2 class="text-3xl font-bold display-font mb-4">Questions?</h2>
+                    <p class="text-slate leading-relaxed">
+                        If you have security questions or need information for your IT security review, contact us at security@advisornote.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12" style="background: var(--cream); color: var(--charcoal);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-center gap-8 mb-8 text-center">
+                <a href="privacy.html" class="text-sm mono-font hover:opacity-75 transition" style="color: var(--rust);">Privacy</a>
+                <a href="terms.html" class="text-sm mono-font hover:opacity-75 transition" style="color: var(--rust);">Terms</a>
+                <a href="security.html" class="text-sm mono-font hover:opacity-75 transition" style="color: var(--rust);">Security</a>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-sm opacity-75 mono-font">
+                    © 2024 AdvisorNote. Made in Australia for Australian financial professionals.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
