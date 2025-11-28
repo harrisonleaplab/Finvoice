@@ -383,6 +383,7 @@
             font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
             margin-bottom: 1rem;
+            resize: vertical;
         }
         
         .email-input:focus {
@@ -415,6 +416,49 @@
         </div>
     </div>
     
+    <!-- Team Pricing Contact Modal -->
+    <div id="teamPricingModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeTeamPricingModal()">&times;</button>
+            <h3 class="text-3xl font-bold display-font mb-4">Team Pricing Inquiry</h3>
+            <p class="text-slate mb-6">Tell us about your team and we'll get back to you with a custom quote.</p>
+            <form id="teamPricingForm" onsubmit="handleTeamPricingSubmit(event)">
+                <input 
+                    type="text" 
+                    id="teamName" 
+                    class="email-input" 
+                    placeholder="Your Name" 
+                    required
+                />
+                <input 
+                    type="email" 
+                    id="teamEmail" 
+                    class="email-input" 
+                    placeholder="your.email@example.com" 
+                    required
+                />
+                <input 
+                    type="text" 
+                    id="teamCompany" 
+                    class="email-input" 
+                    placeholder="Company Name" 
+                    required
+                />
+                <textarea 
+                    id="teamMessage" 
+                    class="email-input" 
+                    placeholder="Tell us about your team size and requirements..." 
+                    rows="4"
+                    required
+                ></textarea>
+                <button type="submit" class="btn-primary w-full text-center">
+                    Send Inquiry
+                </button>
+            </form>
+            <p class="text-xs text-slate mt-4 mono-font">We typically respond within 24 hours.</p>
+        </div>
+    </div>
+    
     <script>
         function openEmailModal() {
             document.getElementById('emailModal').classList.add('active');
@@ -436,10 +480,42 @@
             window.location.href = 'download.html';
         }
         
+        function openTeamPricingModal() {
+            document.getElementById('teamPricingModal').classList.add('active');
+        }
+        
+        function closeTeamPricingModal() {
+            document.getElementById('teamPricingModal').classList.remove('active');
+        }
+        
+        function handleTeamPricingSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('teamName').value;
+            const email = document.getElementById('teamEmail').value;
+            const company = document.getElementById('teamCompany').value;
+            const message = document.getElementById('teamMessage').value;
+            
+            // Store team inquiry (you can send this to your backend)
+            console.log('Team pricing inquiry:', { name, email, company, message });
+            
+            // Show success message
+            alert('Thank you! We\'ll get back to you within 24 hours.');
+            
+            // Close modal and reset form
+            closeTeamPricingModal();
+            document.getElementById('teamPricingForm').reset();
+        }
+        
         // Close modal when clicking outside
         document.getElementById('emailModal').addEventListener('click', function(event) {
             if (event.target === this) {
                 closeEmailModal();
+            }
+        });
+        
+        document.getElementById('teamPricingModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeTeamPricingModal();
             }
         });
     </script>
@@ -902,7 +978,7 @@
 
             <div class="text-center mt-16">
                 <p class="text-slate mb-3 mono-font">Need licenses for your team?</p>
-                <a href="#" class="font-semibold hover:opacity-75 transition" style="color: var(--rust);">Contact us for team pricing →</a>
+                <a href="#" onclick="openTeamPricingModal(); return false;" class="font-semibold hover:opacity-75 transition" style="color: var(--rust);">Contact us for team pricing →</a>
             </div>
         </div>
     </section>
