@@ -319,9 +319,130 @@
             background: var(--rust);
             z-index: -1;
         }
+        
+        /* Email Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.8);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--cream);
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            border: 3px solid var(--charcoal);
+            position: relative;
+        }
+        
+        .modal-content::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: 6px;
+            bottom: 6px;
+            background: var(--rust);
+            z-index: -1;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        
+        .close-modal:hover {
+            opacity: 1;
+        }
+        
+        .email-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--charcoal);
+            background: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: var(--rust);
+        }
     </style>
 </head>
 <body>
+    
+    <!-- Email Collection Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeEmailModal()">&times;</button>
+            <h3 class="text-3xl font-bold display-font mb-4">Start Your Free Trial</h3>
+            <p class="text-slate mb-6">Enter your email to download FinVoice and get started.</p>
+            <form id="emailForm" onsubmit="handleEmailSubmit(event)">
+                <input 
+                    type="email" 
+                    id="emailInput" 
+                    class="email-input" 
+                    placeholder="your.email@example.com" 
+                    required
+                />
+                <button type="submit" class="btn-primary w-full text-center">
+                    Continue to Download
+                </button>
+            </form>
+            <p class="text-xs text-slate mt-4 mono-font">We'll only use your email to send you product updates. No spam.</p>
+        </div>
+    </div>
+    
+    <script>
+        function openEmailModal() {
+            document.getElementById('emailModal').classList.add('active');
+        }
+        
+        function closeEmailModal() {
+            document.getElementById('emailModal').classList.remove('active');
+        }
+        
+        function handleEmailSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            
+            // Store email (you can send this to your backend)
+            console.log('Email submitted:', email);
+            
+            // Close modal and redirect to download page
+            closeEmailModal();
+            window.location.href = 'download.html';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('emailModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeEmailModal();
+            }
+        });
+    </script>
     
     <!-- Navigation -->
     <nav class="fixed w-full z-50">
@@ -361,9 +482,9 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-5 mb-12 animate-in delay-3">
-                    <a href="download.html" class="btn-primary text-center">
+                    <button onclick="openEmailModal()" class="btn-primary text-center">
                         Start Free Trial
-                    </a>
+                    </button>
                     <button class="btn-secondary" style="color: white; border-color: white;">
                         Watch Demo
                     </button>
@@ -713,9 +834,9 @@
                         </div>
                     </div>
                     
-                    <a href="download.html" class="btn-secondary w-full block text-center">
+                    <button onclick="openEmailModal()" class="btn-secondary w-full block text-center">
                         Download Free Trial
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Pro -->
@@ -773,7 +894,7 @@
                         </div>
                     </div>
                     
-                    <button class="btn-primary w-full" style="background: white; color: var(--charcoal); border-color: white;">
+                    <button onclick="openEmailModal()" class="btn-primary w-full" style="background: white; color: var(--charcoal); border-color: white;">
                         Start Pro
                     </button>
                 </div>
@@ -797,9 +918,9 @@
                 Join financial advisors across Australia who've made the switch to faster, more secure documentation.
             </p>
             <div class="flex flex-col sm:flex-row gap-5 justify-center mb-8">
-                <a href="download.html" class="btn-primary text-lg px-10 py-5 text-center">
+                <button onclick="openEmailModal()" class="btn-primary text-lg px-10 py-5 text-center">
                     Start Trial
-                </a>
+                </button>
                 <button class="btn-secondary text-lg px-10 py-5">
                     Book a Demo
                 </button>
