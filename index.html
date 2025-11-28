@@ -390,6 +390,56 @@
             outline: none;
             border-color: var(--rust);
         }
+        
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-modal.active {
+            display: flex;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            aspect-ratio: 16 / 9;
+            background: var(--charcoal);
+        }
+        
+        .video-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .video-close:hover {
+            opacity: 1;
+        }
+        
+        .video-container video,
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--rust);
+        }
     </style>
 </head>
 <body>
@@ -459,6 +509,22 @@
         </div>
     </div>
     
+    <!-- Video Demo Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-container">
+            <button class="video-close" onclick="closeVideoModal()">&times;</button>
+            <!-- Replace with your video URL -->
+            <!-- Option 1: YouTube/Vimeo embed -->
+            <iframe id="demoVideo" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            
+            <!-- Option 2: Direct video file (uncomment to use) -->
+            <!-- <video id="demoVideo" controls>
+                <source src="your-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </div>
+    </div>
+    
     <script>
         function openEmailModal() {
             document.getElementById('emailModal').classList.add('active');
@@ -506,6 +572,29 @@
             document.getElementById('teamPricingForm').reset();
         }
         
+        // Video Modal Functions
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('demoVideo');
+            
+            // Set your video URL here (YouTube or Vimeo)
+            // YouTube example: https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1
+            // Vimeo example: https://player.vimeo.com/video/YOUR_VIDEO_ID?autoplay=1
+            iframe.src = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1';
+            
+            modal.classList.add('active');
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('demoVideo');
+            
+            // Stop video playback
+            iframe.src = '';
+            
+            modal.classList.remove('active');
+        }
+        
         // Close modal when clicking outside
         document.getElementById('emailModal').addEventListener('click', function(event) {
             if (event.target === this) {
@@ -516,6 +605,12 @@
         document.getElementById('teamPricingModal').addEventListener('click', function(event) {
             if (event.target === this) {
                 closeTeamPricingModal();
+            }
+        });
+        
+        document.getElementById('videoModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeVideoModal();
             }
         });
     </script>
@@ -561,7 +656,7 @@
                     <button onclick="openEmailModal()" class="btn-primary text-center">
                         Start Free Trial
                     </button>
-                    <button class="btn-secondary" style="color: white; border-color: white;">
+                    <button onclick="openVideoModal()" class="btn-secondary" style="color: white; border-color: white;">
                         Watch Demo
                     </button>
                 </div>
@@ -590,10 +685,10 @@
             <div class="max-w-4xl mx-auto text-center mb-20">
                 <div class="section-accent mx-auto"></div>
                 <h2 class="text-5xl md:text-6xl font-bold display-font mb-6">
-                    Research proves it
+                    Hold key, talk, release
                 </h2>
                 <p class="text-xl text-slate">
-                    Stanford University research demonstrates speech recognition is dramatically faster and more accurate than typing
+                    Immediately speak your notes into all major platforms including Iress, HUB24, Netwealth, BT Panorama, Microsoft Office and many more
                 </p>
             </div>
 
