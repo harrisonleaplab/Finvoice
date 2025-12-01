@@ -1,0 +1,12 @@
+{
+  "name": "advisornote-website",
+  "version": "1.0.0",
+  "description": "AdvisorNote static site for Netlify build.",
+  "scripts": {
+    "build": "npx tailwindcss -i ./css/input.css -o ./css/styles.css --minify",
+    "postinstall": "npm run build"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
