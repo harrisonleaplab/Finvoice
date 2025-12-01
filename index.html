@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   AdvisorNote | Secure Speech-to-Text for Australian Finance Professionals
+  </title>
+  <link href="./css/styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="modal" id="emailModal">
+   <div class="modal-content">
+    <button aria-label="Close Email Sign-up Modal" class="close-modal" onclick="closeEmailModal()">
+     ×
+    </button>
+    <h3 class="text-3xl font-bold display-font mb-4">
+     Start Your Free Trial
+    </h3>
+    <p class="text-slate mb-6">
+     Enter your email to download AdvisorNote and get started.
+    </p>
+    <form id="emailForm" onsubmit="handleEmailSubmit(event)">
+     <input class="email-input" id="emailInput" placeholder="your.email@example.com" required="" type="email"/>
+     <button class="btn-primary w-full text-center" type="submit">
+      Continue to Download
+     </button>
+    </form>
+    <p class="text-xs text-slate mt-4 mono-font">
+     We'll only use your email to send you product updates. No spam.
+    </p>
+   </div>
+  </div>
+  <div class="modal" id="teamPricingModal">
+   <div class="modal-content">
+    <button aria-label="Close Team Pricing Modal" class="close-modal" onclick="closeTeamPricingModal()">
+     ×
+    </button>
+    <h3 class="text-3xl font-bold display-font mb-4">
+     Team Pricing Inquiry
+    </h3>
+    <p class="text-slate mb-6">
+     Tell us about your team and we'll get back to you with a custom quote.
+    </p>
+    <form id="teamPricingForm" onsubmit="handleTeamPricingSubmit(event)">
+     <input class="email-input" id="teamName" placeholder="Your Name" required="" type="text"/>
+     <input class="email-input" id="teamEmail" placeholder="your.email@example.com" required="" type="email"/>
+     <input class="email-input" id="teamCompany" placeholder="Company Name" required="" type="text"/>
+     <textarea class="email-input" id="teamMessage" placeholder="Tell us about your team size and requirements..." required="" rows="4"></textarea>
+     <button class="btn-primary w-full text-center" type="submit">
+      Send Inquiry
+     </button>
+    </form>
+    <p class="text-xs text-slate mt-4 mono-font">
+     We typically respond within 24 hours.
+    </p>
+   </div>
+  </div>
+  <div class="video-modal" id="videoModal">
+   <div class="video-container">
+    <button aria-label="Close Video Demo Modal" class="video-close" onclick="closeVideoModal()">
+     ×
+    </button>
+    <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" id="demoVideo" src="">
+    </iframe>
+   </div>
+  </div>
+  <script defer="" src="./js/script.js">
+  </script>
+  <nav class="fixed w-full z-50">
+   <div class="max-w-7xl mx-auto px-6 py-5">
+    <div class="flex items-center justify-between">
+     <div class="text-3xl font-bold display-font">
+      AdvisorNote
+     </div>
+     <div class="hidden md:flex space-x-10 mono-font text-sm uppercase tracking-wider">
+      <a class="hover:text-rust transition-colors" href="#productivity">
+       Productivity
+      </a>
+      <a class="hover:text-rust transition-colors" href="#security">
+       Security
+      </a>
+      <a class="hover:text-rust transition-colors" href="#pricing">
+       Pricing
+      </a>
+     </div>
+     <a class="btn-primary" href="download.html">
+      Download
+     </a>
+    </div>
+   </div>
+  </nav>
+  <section class="hero-bg pt-40 pb-20 text-white relative">
+   <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="max-w-5xl">
+     <div class="security-badge animate-in">
+      <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20">
+       <path clip-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">
+       </path>
+      </svg>
+      100% On-Device • Privacy First
+     </div>
+     <h1 class="text-7xl md:text-8xl lg:text-9xl font-bold display-font mt-8 mb-8 leading-none animate-in delay-1">
+      Stop typing.
+      <br/>
+      <span style="color: var(--rust);">
+       Start speaking.
+      </span>
+     </h1>
+     <p class="text-2xl md:text-3xl mb-12 max-w-3xl leading-relaxed animate-in delay-2" style="color: var(--ochre);">
+      Enterprise speech-to-text that runs locally on your device. Built for Australian financial advisors who can't compromise on security.
+     </p>
+     <div class="flex flex-col sm:flex-row gap-5 mb-12 animate-in delay-3">
+      <button class="btn-primary text-center" onclick="openEmailModal()">
+       Start Free Trial
+      </button>
+      <button class="btn-secondary" onclick="openVideoModal()" style="color: white; border-color: white;">
+       Watch Demo
+      </button>
+     </div>
+     <div class="grid grid-cols-3 gap-8 max-w-2xl animate-in delay-4">
+      <div>
+       <div class="mono-font text-4xl font-bold mb-2" style="color: var(--rust);">
+        3×
+       </div>
+       <div class="text-sm uppercase tracking-wider opacity-75">
+        Faster than typing
+       </div>
+      </div>
+      <div>
+       <div class="mono-font text-4xl font-bold mb-2" style="color: var(--rust);">
+        99%
+       </div>
+       <div class="text-sm uppercase tracking-wider opacity-75">
+        Accuracy
+       </div>
+      </div>
+      <div>
+       <div class="mono-font text-4xl font-bold mb-2" style="color: var(--rust);">
+        0%
+       </div>
+       <div class="text-sm uppercase tracking-wider opacity-75">
+        Data sent to cloud
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="py-20" id="productivity">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <div class="section-accent mx-auto">
+     </div>
+     <h2 class="text-4xl md:text-5xl font-bold display-font">
+      Reclaim Your Working Day
+     </h2>
+     <p class="text-xl text-slate max-w-3xl mx-auto mt-4">
+      See how much time AdvisorNote saves you on routine documentation and compliance notes.
+     </p>
+    </div>
+    <div class="space-y-8 max-w-5xl mx-auto">
+     <div class="comparison-container">
+      <div class="mb-8">
+       <h3 class="text-3xl font-bold display-font mb-3">
+        Client Meeting Summary
+       </h3>
+       <p class="text-slate mono-font text-sm">
+        500 words • Discussion points, recommendations, action items
+       </p>
+      </div>
+      <div class="space-y-8">
+       <div>
+        <div class="flex justify-between items-center mb-3">
+         <span class="font-semibold text-lg">
+          Typing
+         </span>
+         <span class="text-4xl font-bold mono-font" style="color: var(--slate);">
+          12.5 min
+         </span>
+        </div>
+        <div class="w-full bg-sand h-8 relative overflow-hidden">
+         <div class="progress-bar absolute top-0 left-0 h-full" style="width: 100%; background: var(--slate);">
+         </div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between items-center mb-3">
+         <span class="font-semibold text-lg">
+          AdvisorNote
+         </span>
+         <span class="text-4xl font-bold mono-font" style="color: var(--rust);">
+          3.3 min
+         </span>
+        </div>
+        <div class="w-full bg-sand h-8 relative overflow-hidden">
+         <div class="progress-bar absolute top-0 left-0 h-full" style="width: 26.4%; background: var(--rust);">
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="mt-8 p-6 border-3 border-charcoal" style="background: var(--seafoam); color: white;">
+       <div class="flex items-center justify-between">
+        <div>
+         <div class="text-3xl font-bold mono-font">
+          9.2 min saved
+         </div>
+         <div class="text-sm uppercase tracking-wider opacity-90 mono-font">
+          73% faster
+         </div>
+        </div>
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+         </path>
+        </svg>
+       </div>
+      </div>
+     </div>
+     <div class="comparison-container">
+      <div class="mb-8">
+       <h3 class="text-3xl font-bold display-font mb-3">
+        Statement of Advice
+       </h3>
+       <p class="text-slate mono-font text-sm">
+        2,000 words • Initial draft of recommendations and strategy
+       </p>
+      </div>
+      <div class="space-y-8">
+       <div>
+        <div class="flex justify-between items-center mb-3">
+         <span class="font-semibold text-lg">
+          Typing
+         </span>
+         <span class="text-4xl font-bold mono-font" style="color: var(--slate);">
+          50 min
+         </span>
+        </div>
+        <div class="w-full bg-sand h-8 relative overflow-hidden">
+         <div class="progress-bar absolute top-0 left-0 h-full" style="width: 100%; background: var(--slate);">
+         </div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between items-center mb-3">
+         <span class="font-semibold text-lg">
+          AdvisorNote
+         </span>
+         <span class="text-4xl font-bold mono-font" style="color: var(--rust);">
+          13.3 min
+         </span>
+        </div>
+        <div class="w-full bg-sand h-8 relative overflow-hidden">
+         <div class="progress-bar absolute top-0 left-0 h-full" style="width: 26.6%; background: var(--rust);">
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="mt-8 p-6 border-3 border-charcoal" style="background: var(--seafoam); color: white;">
+       <div class="flex items-center justify-between">
+        <div>
+         <div class="text-3xl font-bold mono-font">
+          36.7 min saved
+         </div>
+         <div class="text-sm uppercase tracking-wider opacity-90 mono-font">
+          73% faster
+         </div>
+        </div>
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+         </path>
+        </svg>
+       </div>
+      </div>
+     </div>
+     <div class="comparison-container">
+      <div class="mb-8">
+       <h3 class="text-3xl font-bold display-font mb-3">
+        Quick Phone Call Note
+       </h3>
+       <p class="text-slate mono-font text-sm">
+        200 words • Compliance notes, follow-up items
+       </p>
+      </div>
+      <div class="space-y-8">
+       <div>
+        <div class="flex justify-between items-center mb-3">
+         <span class="font-semibold text-lg">
+          Typing
+         </span>
+         <span class="text-4xl font-bold mono-font" style="color: var(--slate);">
+          5 min
+         </span>
+        </div>
+        <div class="w-full bg-sand h-8 relative overflow-hidden">
+         <div class="progress-bar absolute top-0 left-0 h-full" style="width: 100%; background: var(--slate);">
+         </div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between items-center mb-3">
+         <span class="font-semibold text-lg">
+          AdvisorNote
+         </span>
+         <span class="text-4xl font-bold mono-font" style="color: var(--rust);">
+          1.3 min
+         </span>
+        </div>
+        <div class="w-full bg-sand h-8 relative overflow-hidden">
+         <div class="progress-bar absolute top-0 left-0 h-full" style="width: 26%; background: var(--rust);">
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="mt-8 p-6 border-3 border-charcoal" style="background: var(--seafoam); color: white;">
+       <div class="flex items-center justify-between">
+        <div>
+         <div class="text-3xl font-bold mono-font">
+          3.7 min saved
+         </div>
+         <div class="text-sm uppercase tracking-wider opacity-90 mono-font">
+          ×10 notes/day = 37 minutes daily
+         </div>
+        </div>
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+         </path>
+        </svg>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="mt-20 bg-charcoal text-white p-12 md:p-16 text-center border-3 border-charcoal relative">
+     <div class="absolute top-0 left-0 w-full h-full" style="background: var(--rust); transform: translate(8px, 8px); z-index: -1;">
+     </div>
+     <div class="display-font text-5xl md:text-7xl font-bold mb-6">
+      7+ hours
+     </div>
+     <div class="text-2xl md:text-3xl mb-4">
+      saved every week
+     </div>
+     <div class="text-lg opacity-75 mono-font font-bold">
+      That's an entire working day reclaimed from documentation
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="py-16" id="security" style="background: var(--sand);">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <div class="section-accent mx-auto">
+     </div>
+     <h2 class="text-4xl md:text-5xl font-bold display-font">
+      True Data Security
+     </h2>
+     <p class="text-xl text-slate max-w-3xl mx-auto mt-4">
+      The only compliant solution built for high-stakes Australian financial data.
+     </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10">
+     <div class="feature-card p-10">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6" style="background: var(--charcoal);">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        </path>
+       </svg>
+      </div>
+      <h3 class="text-2xl font-bold display-font mb-4">
+       100% On-Device Processing
+      </h3>
+      <p class="text-slate mb-6 leading-relaxed">
+       The entire speech recognition model runs locally on your Mac or PC. Your sensitive audio and transcripts never leave your device.
+      </p>
+      <div class="space-y-3">
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         No internet required for transcription
+        </span>
+       </div>
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         No cloud connection during use
+        </span>
+       </div>
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         Compatible with restrictive IT environments
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="feature-card p-10">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6" style="background: var(--charcoal);">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 20V14m-5.466-8.914a1 1 0 011.026.155L12 8l4.44-2.759a1 1 0 011.026-.155l3.524 1.838a1 1 0 01.37 1.342l-4.44 7.545a1 1 0 01-.84.453H6.84a1 1 0 01-.84-.453l-4.44-7.545a1 1 0 01.37-1.342l3.524-1.838z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        </path>
+       </svg>
+      </div>
+      <h3 class="text-2xl font-bold display-font mb-4">
+       Financial Terminology
+      </h3>
+      <p class="text-slate mb-6 leading-relaxed">
+       Unlike general speech-to-text, AdvisorNote is trained specifically on Australian financial and compliance vocabulary.
+      </p>
+      <div class="space-y-3">
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         Terms like FASEA, ASIC, SMSF
+        </span>
+       </div>
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         Australian spellings and accents
+        </span>
+       </div>
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         Accurate decimal and currency formatting
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="feature-card p-10">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6" style="background: var(--charcoal);">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        </path>
+       </svg>
+      </div>
+      <h3 class="text-2xl font-bold display-font mb-4">
+       Complete Data Control
+      </h3>
+      <p class="text-slate mb-6 leading-relaxed">
+       You own your data. AdvisorNote never collects, stores, or has access to your transcriptions or client information throughout the entire process.
+      </p>
+      <div class="space-y-3">
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         No telemetry or usage tracking
+        </span>
+       </div>
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         Zero data retention policies
+        </span>
+       </div>
+       <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-charcoal">
+        </div>
+        <span class="mono-font text-sm">
+         Australian data sovereignty guaranteed
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="bg-charcoal text-white p-8 text-center border-3 border-charcoal relative">
+     <div class="absolute top-0 left-0 w-full h-full" style="background: var(--sand); transform: translate(8px, 8px); z-index: -1;">
+     </div>
+     <h3 class="text-3xl md:text-4xl font-bold display-font mb-3" style="color: var(--charcoal);">
+      Unlike cloud-based transcription services
+     </h3>
+     <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: var(--charcoal);">
+      AdvisorNote eliminates the security concerns, compliance questions, and IT approval delays that come with sending client data to the internet.
+     </p>
+    </div>
+   </div>
+  </section>
+  <section class="py-20" id="pricing">
+   <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="section-accent mx-auto">
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold display-font">
+     Simple Pricing
+    </h2>
+    <p class="text-xl text-slate max-w-3xl mx-auto mt-4 mb-16">
+     No per-minute fees, no hidden costs. Pay once per year for unlimited use.
+    </p>
+    <div class="grid md:grid-cols-3 gap-10 items-center max-w-5xl mx-auto">
+     <div class="bg-white p-10 border-3 border-charcoal h-full flex flex-col justify-between">
+      <div>
+       <div class="mono-font text-sm uppercase tracking-wider mb-2" style="color: var(--rust);">
+        Trial
+       </div>
+       <h3 class="text-4xl font-bold display-font mb-4">
+        Free
+       </h3>
+       <p class="text-slate mb-8">
+        Test the full power of AdvisorNote with your own data.
+       </p>
+       <div class="space-y-3 text-left mb-10">
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: var(--seafoam);">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          All features enabled
+         </span>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: var(--seafoam);">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          100% on-device processing
+         </span>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: var(--seafoam);">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          Limited to 1,000 words
+         </span>
+        </div>
+       </div>
+       <button class="btn-secondary w-full block text-center" onclick="openEmailModal()">
+        Download Free Trial
+       </button>
+      </div>
+     </div>
+     <div class="pricing-featured p-10 h-full flex flex-col justify-between">
+      <div>
+       <div class="mb-8">
+        <div class="mono-font text-sm uppercase tracking-wider mb-2 opacity-75">
+         Pro
+        </div>
+        <h3 class="text-2xl font-bold display-font mb-2">
+         $299
+         <span class="text-lg font-normal opacity-75">
+          / year
+         </span>
+        </h3>
+        <p class="text-sm opacity-75">
+         Billed Annually
+        </p>
+       </div>
+       <p class="mb-8">
+        For individual financial advisors seeking maximum privacy and efficiency.
+       </p>
+       <div class="space-y-3 text-left mb-10">
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: white;">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" style="color: var(--rust);" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          Unlimited usage
+         </span>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: white;">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" style="color: var(--rust);" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span class="Apple-converted-space">
+          <ce">
+          </ce">
+         </span>
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: white;">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" style="color: var(--rust);" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          Priority email support
+         </span>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: white;">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" style="color: var(--rust);" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          14-day money-back guarantee
+         </span>
+        </div>
+       </div>
+       <button class="btn-primary w-full" onclick="openEmailModal()" style="background: white; color: var(--charcoal); border-color: white;">
+        Start Pro
+       </button>
+      </div>
+     </div>
+     <div class="bg-white p-10 border-3 border-charcoal h-full flex flex-col justify-between">
+      <div>
+       <div class="mono-font text-sm uppercase tracking-wider mb-2" style="color: var(--rust);">
+        Team
+       </div>
+       <h3 class="text-4xl font-bold display-font mb-4">
+        Custom
+       </h3>
+       <p class="text-slate mb-8">
+        Centralized billing and management for advice firms and enterprises.
+       </p>
+       <div class="space-y-3 text-left mb-10">
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: var(--seafoam);">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          Dedicated account manager
+         </span>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: var(--seafoam);">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          Volume license discounts
+         </span>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: var(--seafoam);">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+           </path>
+          </svg>
+         </div>
+         <span>
+          Single Sign-On (SSO) integration
+         </span>
+        </div>
+       </div>
+       <button class="btn-primary w-full text-center" onclick="openTeamPricingModal()">
+        Request Quote
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="text-center mt-16">
+     <p class="text-slate mb-3 mono-font">
+      Need licenses for your team?
+     </p>
+     <a class="font-semibold hover:opacity-75 transition" href="#" onclick="openTeamPricingModal(); return false;" style="color: var(--rust);">
+      Contact us for team pricing →
+     </a>
+    </div>
+   </div>
+  </section>
+  <section class="py-16">
+   <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-5xl md:text-6xl font-bold display-font mb-8">
+     Ready to take back your time?
+    </h2>
+    <button class="btn-primary text-center mx-auto mb-6" onclick="openEmailModal()">
+     Download AdvisorNote
+    </button>
+    <p class="text-sm opacity-75 text-slate">
+     No credit card required for trial • Windows &amp; Mac • 100% on-device processing, no cloud
+    </p>
+   </div>
+  </section>
+  <footer class="py-12" style="background: var(--cream); color: var(--charcoal);">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+     <div class="text-4xl font-bold display-font mb-4">
+      AdvisorNote
+     </div>
+     <p class="text-sm opacity-75 max-w-md mx-auto">
+      Secure, local speech-to-text for Australian finance professionals.
+     </p>
+    </div>
+    <div class="flex justify-center gap-8 mb-8">
+     <a class="text-sm mono-font hover:opacity-75 transition" href="privacy.html" style="color: var(--rust);">
+      Privacy
+     </a>
+     <a class="text-sm mono-font hover:opacity-75 transition" href="terms.html" style="color: var(--rust);">
+      Terms
+     </a>
+     <a class="text-sm mono-font hover:opacity-75 transition" href="security.html" style="color: var(--rust);">
+      Security
+     </a>
+    </div>
+    <div class="border-t pt-8 text-center" style="border-color: rgba(26, 26, 26, 0.2);">
+     <p class="text-sm opacity-75 mono-font">
+      © 2025 AdvisorNote. Made in Australia for Australian financial professionals.
+     </p>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>

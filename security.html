@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Security | AdvisorNote
+  </title>
+  <link href="./css/styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body>
+  <nav class="fixed w-full z-50">
+   <div class="max-w-7xl mx-auto px-6 py-5">
+    <div class="flex items-center justify-between">
+     <a class="text-3xl font-bold display-font" href="index.html">
+      AdvisorNote
+     </a>
+     <a class="mono-font text-sm uppercase tracking-wider hover:opacity-75 transition" href="index.html">
+      ← Back to Home
+     </a>
+    </div>
+   </div>
+  </nav>
+  <section class="pt-32 pb-20 min-h-screen" style="background: var(--sand);">
+   <div class="max-w-4xl mx-auto px-6">
+    <h1 class="text-5xl font-bold display-font mb-4">
+     Security Overview
+    </h1>
+    <p class="text-slate text-sm mono-font mb-12">
+     How AdvisorNote ensures compliance and data safety.
+    </p>
+    <div class="space-y-12">
+     <div class="bg-white p-8 border-2 border-charcoal">
+      <h2 class="text-3xl font-bold display-font mb-4">
+       1. The On-Device Principle
+      </h2>
+      <p class="text-slate leading-relaxed mb-4">
+       The defining security feature of AdvisorNote is that the entire speech-to-text model runs locally on your PC or Mac. This eliminates the largest data vulnerability associated with cloud-based transcription.
+      </p>
+      <ul class="list-disc pl-5 text-slate space-y-2 leading-relaxed">
+       <li>
+        **No Internet Dependency:** Transcription works completely offline.
+       </li>
+       <li>
+        **Zero Transmission Risk:** Audio files and sensitive transcripts are never sent to external servers.
+       </li>
+       <li>
+        **Data Ownership:** Data remains 100% on the user's local machine, governed by the firm's local IT policies.
+       </li>
+      </ul>
+     </div>
+     <div class="bg-white p-8 border-2 border-charcoal">
+      <h2 class="text-3xl font-bold display-font mb-4">
+       2. Compliance Focus (Australia)
+      </h2>
+      <p class="text-slate leading-relaxed mb-4">
+       Built specifically for Australian financial service providers, AdvisorNote is designed to simplify adherence to strict local data laws.
+      </p>
+      <ul class="list-disc pl-5 text-slate space-y-2 leading-relaxed">
+       <li>
+        **Privacy Act 1988 (Cth):** By keeping data local, you maintain direct control required for compliance.
+       </li>
+       <li>
+        **Data Sovereignty:** No client data is subject to foreign jurisdictions or US cloud security laws.
+       </li>
+       <li>
+        **Audit Trail:** Transcriptions are saved locally as text files, easily integrated into existing audit and record-keeping systems.
+       </li>
+      </ul>
+     </div>
+     <div class="bg-white p-8 border-2 border-charcoal">
+      <h2 class="text-3xl font-bold display-font mb-4">
+       3. Application Integrity
+      </h2>
+      <p class="text-slate leading-relaxed mb-4">
+       We employ best practices to ensure the integrity and trust of the application itself.
+      </p>
+      <ul class="list-disc pl-5 text-slate space-y-2 leading-relaxed">
+       <li>
+        **Signed Application:** The installer and application files are digitally signed to guarantee they have not been tampered with since they left our development environment.
+       </li>
+       <li>
+        **Minimal Permissions:** The application only requires necessary permissions to access the microphone and local file system. It has no need for network or root access.
+       </li>
+       <li>
+        **Transparent Architecture:** We provide documentation detailing the Software's architecture to allow for internal IT security and due diligence reviews.
+       </li>
+      </ul>
+     </div>
+     <div class="bg-white p-8 border-2 border-charcoal">
+      <h2 class="text-3xl font-bold display-font mb-4">
+       4. Summary of Data Movement
+      </h2>
+      <ul class="list-disc pl-5 text-slate space-y-2 leading-relaxed">
+       <li>
+        **Audio/Transcripts:** Stays on device.
+       </li>
+       <li>
+        **License Check:** Encrypted connection to our licensing server to verify the annual license key. This data is non-identifying.
+       </li>
+       <li>
+        **Updates:** Secure HTTPS connection to download application updates.
+       </li>
+       <li>
+        **Transparent architecture:** Transparent architecture for security audits
+       </li>
+      </ul>
+     </div>
+     <div class="bg-white p-8 border-2 border-charcoal">
+      <h2 class="text-3xl font-bold display-font mb-4">
+       Questions?
+      </h2>
+      <p class="text-slate leading-relaxed">
+       If you have security questions or need information for your IT security review, contact us at security@advisornote.com
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <footer class="py-12" style="background: var(--cream); color: var(--charcoal);">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-center gap-8 mb-8 text-center">
+     <a class="text-sm mono-font hover:opacity-75 transition" href="privacy.html" style="color: var(--rust);">
+      Privacy
+     </a>
+     <a class="text-sm mono-font hover:opacity-75 transition" href="terms.html" style="color: var(--rust);">
+      Terms
+     </a>
+     <a class="text-sm mono-font hover:opacity-75 transition" href="security.html" style="color: var(--rust);">
+      Security
+     </a>
+    </div>
+    <div class="text-center">
+     <p class="text-sm opacity-75 mono-font">
+      © 2025 AdvisorNote. Made in Australia for Australian financial professionals.
+     </p>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>

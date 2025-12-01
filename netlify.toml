@@ -1,0 +1,10 @@
+[build]
+  # Build command - compiles Tailwind CSS
+  command = "npm run build"
+  
+  # Publish directory - serve from root (where HTML files are)
+  publish = "."
+
+[build.environment]
+  # Use a stable Node version
+  NODE_VERSION = "18"
